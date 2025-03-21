@@ -1,0 +1,141 @@
+Day 4:================================>
+method overloading
+-------------------------------
+
+package program;
+
+class Shoppingitems{
+	void additems(String item_name,int price){
+		System.out.println("Item name:"+item_name+" "+"Original price:"+price);
+	}
+	void additems(String item_name,int price,int item_quantity) {
+		double totalprice=item_quantity*price;
+		System.out.println("Item name:"+item_name+" "+"Item quantity"+item_quantity+" "+"Final price:"+totalprice);
+	}
+	void additems(String item_name,int price,int item_quantity,int discount) {
+		double afterdiscount=(item_quantity*price)-discount;
+		System.out.println("Item name:"+item_name+" "+"Final price:"+afterdiscount);
+	}
+}
+public class Shoppingcart {
+
+	public static void main(String[] args) {
+		Shoppingitems ref=new Shoppingitems();
+		ref.additems("Hamam", 30);
+		ref.additems("Hamam", 30,2);
+		ref.additems("Hamam", 30,2,15);
+	}
+
+}
+
+
+Method Overriding
+------------------------------------
+
+package program;
+class Topayvia{
+	void pay(int amount){
+		System.out.println("Inhand Amount:"+amount);
+	}
+}
+class Creditupi extends Topayvia{
+	void pay(int amount) {
+		System.out.println("UPI Payment:"+amount);
+	}
+}
+class Gpay extends Topayvia{
+	void pay(int amount) {
+		System.out.println("Gpay payment:"+amount);
+	}
+}
+public class Paymentprocessing {
+
+	public static void main(String[] args) {
+		Topayvia ref;
+		 ref = new Topayvia();
+		 ref.pay(5000);
+		 ref = new Creditupi();
+		 ref.pay(2000);
+		 ref = new Gpay();
+		 ref.pay(3000);
+	}
+
+}
+
+
+
+
+
+Abstraction
+--------------------------------------------
+package program;
+abstract class Vehicle{
+	abstract void startusing();
+}
+class Bike extends Vehicle{
+	void startusing() {
+		System.out.println("Bike Starts with Kick!");
+	}
+}
+public class Vehicles {
+
+	public static void main(String[] args) {
+	Vehicle ref = new Bike();
+    ref.startusing();
+	}
+
+}
+
+
+
+
+
+
+package program;
+class Employee{
+	void pay(int fixedsalary){
+		System.out.println("Salary="+fixedsalary);
+	}
+	void pay(int hours,int salary) {
+		int pt=hours*salary;
+		System.out.println("Parttime salary="+pt);
+		}
+	void pay(int hours,int salary,int bonus) {
+		int fl=(hours*salary)+bonus;
+		System.out.println("Freelancer="+fl);
+	}
+	
+}
+public class Salarycalculations {
+
+	public static void main(String[] args) {
+		Employee ref=new Employee();
+		ref.pay(800);
+		ref.pay(4,100);
+		ref.pay(5,100,50);
+	}
+
+}
+
+
+Exception Handling----------------------------------------------------------------------------->
+try and catch
+--------------------------
+package program;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+		try {
+			int num = 10/0;
+		}catch(ArithmeticException e) {
+			System.out.println("Cannot divide by zero:"+e.getMessage());		
+	}
+	finally{
+		System.out.println("Execution completed");
+		
+	}
+
+}
+}
+
